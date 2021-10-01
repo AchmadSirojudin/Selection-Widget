@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     AutoCompleteTextView autocomplete;
 
-    private static final String[] kota = new String[]{"Amerika Serikat", "Argentina", "Australia", "Belanda", "Belgia", "Brazil", "China", "India", "Indonesia", "Jepang", "Jerman"};
     String mTitle[] = {"Amerika Serikat", "Argentina", "Australia", "Belanda", "Belgia", "Brazil", "China", "India", "Indonesia", "Jepang", "Jerman"};
     String mDescription[] = {"Amerika Description", "Argentina Description", "Australia Description", "Belanda Description", "Belgia Description", "Brazil Description", "China Description", "India Description", "Indonesia Description", "Jepang Description", "Jerman Description"};
     int images[] = {R.drawable.amerika, R.drawable.argentina, R.drawable.australia, R.drawable.belanda, R.drawable.belgia, R.drawable.brazil, R.drawable.china, R.drawable.india, R.drawable.indonesia, R.drawable.jepang, R.drawable.jerman,};
@@ -37,14 +36,14 @@ public class MainActivity extends AppCompatActivity {
 //  Bagian AutoCompleteText
         autocomplete = findViewById(R.id.autocomplete);
 
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, kota);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, mTitle);
         autocomplete.setAdapter(adapter2);
 
         autocomplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String namaNegara = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Anda klik kota: " +namaNegara, Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "Anda memilih: " +namaNegara, Toast.LENGTH_SHORT).show();
             }
         });
 
