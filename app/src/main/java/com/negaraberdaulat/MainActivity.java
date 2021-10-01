@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -21,19 +22,33 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     Spinner spinner;
+    AutoCompleteTextView autocomplete;
 
+    private static final String[] kota = new String[]{"Amerika Serikat", "Argentina", "Australia", "Belanda", "Belgia", "Brazil", "China", "India", "Indonesia", "Jepang", "Jerman"};
     String mTitle[] = {"Amerika Serikat", "Argentina", "Australia", "Belanda", "Belgia", "Brazil", "China", "India", "Indonesia", "Jepang", "Jerman"};
     String mDescription[] = {"Amerika Description", "Argentina Description", "Australia Description", "Belanda Description", "Belgia Description", "Brazil Description", "China Description", "India Description", "Indonesia Description", "Jepang Description", "Jerman Description"};
     int images[] = {R.drawable.amerika, R.drawable.argentina, R.drawable.australia, R.drawable.belanda, R.drawable.belgia, R.drawable.brazil, R.drawable.china, R.drawable.india, R.drawable.indonesia, R.drawable.jepang, R.drawable.jerman,};
-    // so our images and other things are set in array
-
-    // now paste some images in drawable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//  Bagian AutoCompleteText
+        autocomplete = findViewById(R.id.autocomplete);
+
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, kota);
+        autocomplete.setAdapter(adapter2);
+
+        autocomplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String namaNegara = parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(), "Anda klik kota: " +namaNegara, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//  Bagian Spinner
         spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.country, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -52,51 +67,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+//  Bagian ListView
         listView = findViewById(R.id.listView);
-        // now create an adapter class
 
         MyAdapter adapter1 = new MyAdapter(this, mTitle, mDescription, images);
         listView.setAdapter(adapter1);
-        // there is my mistake...
-        // now again check this..
 
-        // now set item click on list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Amerika Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Argentina Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Australia Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Belanda Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Belgia Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Brazil Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "China Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "India Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Indonesia Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Jepang Description", Toast.LENGTH_SHORT).show();
-                    }
-                    if (position == 0){
-                        Toast.makeText(MainActivity.this, "Jerman Description", Toast.LENGTH_SHORT).show();
-                    }
+                String negara1 = parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(), "Anda klik negara: " +negara1, Toast.LENGTH_SHORT).show();
             }
         });
         // so item click is done now check list view
@@ -131,9 +113,6 @@ public class MainActivity extends AppCompatActivity {
             images.setImageResource(rImgs[position]);
             myTitle.setText(rTitle[position]);
             myDescription.setText(rDescription[position]);
-
-
-
 
             return row;
         }
