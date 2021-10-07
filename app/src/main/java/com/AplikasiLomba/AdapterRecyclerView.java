@@ -42,9 +42,12 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         textSubTittle.setText(dataItem.get(position).getType());
         imageIcon.setImageResource(dataItem.get(position).getImage());
 
+//        Mengatur isi konten untuk recyclerview
+//        Set Toast untuk memunculkan pop up pesan
         holder.parentLayout.setOnClickListener(view -> {
             Toast.makeText(context, "Anda memilih lomba: "+dataItem.get(position).getName(), Toast.LENGTH_SHORT).show(); // memberi pesan
 
+//            Mengatur isi konten beberapa bidang lomba seperti judul dan deskripsi
             if (dataItem.get(position).getName().equals("Animation")) { // akan berjalan jika salah satu list berjalan, membaca berdasarkan nama lombanya yang dicek pada data di file Data.java
                 Intent i = new Intent(context, DetailLombaActivity.class);
                 i.putExtra("IMAGE_DEFAULT", R.drawable.animasi);

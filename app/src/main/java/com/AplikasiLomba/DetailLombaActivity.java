@@ -8,9 +8,11 @@ import android.widget.TextView;
 
 public class DetailLombaActivity extends AppCompatActivity {
 
+//    Inisialisasi variabel yang akan digunakan
     private ImageView ivDefault;
     private TextView tvDefault, tvDefault2, tvDeskripsi;
 
+//    Mengatur variabel isi konten untuk activty detail lomba
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

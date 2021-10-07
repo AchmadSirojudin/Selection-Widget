@@ -1,8 +1,7 @@
 package com.AplikasiLomba;
 
 public class Data {
-    static String[] status = {"Dosen", "Panitia", "Juri", "Pemateri", "Mahasiswa", "Peserta"};
-
+// Mengatur isi konten pada ctivity bidaang lomba
         static int[] iconList = {R.drawable.animasi, R.drawable.bisnis, R.drawable.goverment,
                 R.drawable.game, R.drawable.hackathon, R.drawable.inovasi, R.drawable.iot, R.drawable.security};
 

@@ -22,12 +22,14 @@ import android.widget.Toast;
 
 public class MainActivity<btnDetail> extends AppCompatActivity {
 
+//  Inisialisasi variabel
     ListView listView;
     Spinner spinner;
     AutoCompleteTextView autocomplete;
     private TextView txtDetail;
     private Button btnDetail;
 
+//  Inisialisasi variabel dan isi untuk judul dan deskripsi di list view
     String mTitle[] = {"Animation", "E-Bussiness", "E-Goverment", "Game Dev", "Hackathon", "Innovation", "IoT", "Security"};
     String mDescription[] = {"Lomba Animasi", "Lomba E-Bussiness", "Lomba E-Goverment", "Lomba Game Dev", "Lomba Hackathon", "Lomba Innovation", "Lomba IoT", "Lomba Security"};
     int images[] = {R.drawable.animasi, R.drawable.bisnis, R.drawable.goverment, R.drawable.game, R.drawable.hackathon, R.drawable.inovasi, R.drawable.iot, R.drawable.security};
@@ -43,6 +45,7 @@ public class MainActivity<btnDetail> extends AppCompatActivity {
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, mTitle);
         autocomplete.setAdapter(adapter2);
 
+        //      Set toast (pesan pop up) jika item di klik
         autocomplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -56,6 +59,8 @@ public class MainActivity<btnDetail> extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.country, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        //      Set toast (pesan pop up) jika item di klik
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -77,6 +82,8 @@ public class MainActivity<btnDetail> extends AppCompatActivity {
         MyAdapter adapter1 = new MyAdapter(this, mTitle, mDescription, images);
         listView.setAdapter(adapter1);
 
+        //      Set toast (pesan pop up) jika item di klik
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -84,8 +91,10 @@ public class MainActivity<btnDetail> extends AppCompatActivity {
                 Toast.makeText(parent.getContext(), "Anda klik lomba: " +negara1, Toast.LENGTH_SHORT).show();
             }
         });
-        // so item click is done now check list view
     }
+
+    //      Set Intent untuk pindah activity ke bidanglombaactivity
+    //      Set toast (pesan pop up) jika item di klik
 
     public void bidangLomba(View view) {
         Intent BidangLombaActivity = new Intent(MainActivity.this, BidangLombaActivity.class);
@@ -96,7 +105,7 @@ public class MainActivity<btnDetail> extends AppCompatActivity {
 
 
 
-
+//  Set adapter untuk menampilkan data
     class MyAdapter extends ArrayAdapter<String> {
 
         Context context;
