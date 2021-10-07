@@ -1,4 +1,4 @@
-package com.negaraberdaulat;
+package com.AplikasiLomba;
 
 import org.junit.Test;
 

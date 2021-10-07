@@ -1,10 +1,11 @@
-package com.negaraberdaulat;
+ package com.AplikasiLomba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,26 +13,29 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity<btnDetail> extends AppCompatActivity {
 
     ListView listView;
     Spinner spinner;
     AutoCompleteTextView autocomplete;
+    private TextView txtDetail;
+    private Button btnDetail;
 
-    String mTitle[] = {"Amerika Serikat", "Argentina", "Australia", "Belanda", "Belgia", "Brazil", "China", "India", "Indonesia", "Jepang", "Jerman"};
-    String mDescription[] = {"Amerika Description", "Argentina Description", "Australia Description", "Belanda Description", "Belgia Description", "Brazil Description", "China Description", "India Description", "Indonesia Description", "Jepang Description", "Jerman Description"};
-    int images[] = {R.drawable.amerika, R.drawable.argentina, R.drawable.australia, R.drawable.belanda, R.drawable.belgia, R.drawable.brazil, R.drawable.china, R.drawable.india, R.drawable.indonesia, R.drawable.jepang, R.drawable.jerman,};
+    String mTitle[] = {"Animation", "E-Bussiness", "E-Goverment", "Game Dev", "Hackathon", "Innovation", "IoT", "Security"};
+    String mDescription[] = {"Lomba Animasi", "Lomba E-Bussiness", "Lomba E-Goverment", "Lomba Game Dev", "Lomba Hackathon", "Lomba Innovation", "Lomba IoT", "Lomba Security"};
+    int images[] = {R.drawable.animasi, R.drawable.bisnis, R.drawable.goverment, R.drawable.game, R.drawable.hackathon, R.drawable.inovasi, R.drawable.iot, R.drawable.security};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_activity);
 
 //  Bagian AutoCompleteText
         autocomplete = findViewById(R.id.autocomplete);
@@ -42,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         autocomplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String namaNegara = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Anda memilih: " +namaNegara, Toast.LENGTH_SHORT).show();
+                String namaLomba = parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(), "Anda memilih: " +namaLomba, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String negara = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Anda klik negara: " +negara, Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "Anda : " +negara, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -77,11 +81,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String negara1 = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Anda klik negara: " +negara1, Toast.LENGTH_SHORT).show();
+                Toast.makeText(parent.getContext(), "Anda klik lomba: " +negara1, Toast.LENGTH_SHORT).show();
             }
         });
         // so item click is done now check list view
     }
+
+    public void bidangLomba(View view) {
+        Intent BidangLombaActivity = new Intent(MainActivity.this, BidangLombaActivity.class);
+        startActivity(BidangLombaActivity);
+        Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
+    }
+
+
+
+
 
     class MyAdapter extends ArrayAdapter<String> {
 
@@ -116,5 +130,6 @@ public class MainActivity extends AppCompatActivity {
             return row;
         }
     }
+
     }
 

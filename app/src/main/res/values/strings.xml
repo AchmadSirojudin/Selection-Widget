@@ -1,17 +1,13 @@
 <resources>
-    <string name="app_name">Negara Berdaulat</string>
+    <string name="app_name">List Lomba KMIPN 2021</string>
     <string-array name="country">
-        <item>Amerika Serikat</item>
-        <item>Argentina</item>
-        <item>Australia</item>
-        <item>Belanda</item>
-        <item>Belgia</item>
-        <item>Brazil</item>
-        <item>China</item>
-        <item>India</item>
-        <item>Indonesia</item>
-        <item>Jepang</item>
-        <item>Jerman</item>
+        <item>Panitia</item>
+        <item>Juri</item>
+        <item>Guest Star</item>
+        <item>Dosen Pembimbing</item>
+        <item>Peserta KMIPN</item>
+        <item>Mahasiswa Umum</item>
+        <item>Pemateri Webinar</item>
 
     </string-array>
 </resources>

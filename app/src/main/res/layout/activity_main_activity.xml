@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:padding="15dp">
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    >
+                </Spinner>
+
+                <AutoCompleteTextView
+                    android:id="@+id/autocomplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cari Kategori Lomba"
+                    android:completionThreshold="1"
+                    android:padding="15dp"
+                    android:paddingBottom="5dp"
+                    >
+                </AutoCompleteTextView>
+
+
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="510dp">
+
+                </ListView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="20dp">
+
+                        <Button
+                            android:id="@+id/btnDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:text="Lihat Detail Lomba"
+                            android:background="#333"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textAllCaps="false"
+                            android:onClick="bidangLomba"/>
+                </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
+
+
+
+
+</LinearLayout>
+
